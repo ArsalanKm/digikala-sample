@@ -28,11 +28,7 @@ const composeEnhancers =
   compose;
 let persistRe = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(
-  persistRe,
-  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  composeEnhancers(applyMiddleware(thunk))
-);
+const store = createStore(persistRe, composeEnhancers(applyMiddleware(thunk)));
 export const persistor = persistStore(store);
 
 ReactDOM.render(

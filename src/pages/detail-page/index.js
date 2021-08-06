@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { fetchSingleProduct } from '../../store/product/actions';
 import { addItem } from '../../store/cart/actions';
-import './_styles.scss';
 import CustomButton from '../../components/custom-button';
+import './_styles.scss';
 
 const DetailPage = () => {
   const product = useSelector((state) => state.product.product);

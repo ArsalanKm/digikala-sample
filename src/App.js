@@ -3,7 +3,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import CheckoutPage from './pages/cart-page';
 import Header from './components/header';
 import DetailPage from './pages/detail-page';
-import './app.scss';
+import './assets/scss/app.scss';
+
 const App = () => {
   return (
     <BrowserRouter>

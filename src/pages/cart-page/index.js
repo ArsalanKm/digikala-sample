@@ -1,7 +1,8 @@
 import React from 'react';
-import './_styles.scss';
 import { useSelector } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item';
+import './_styles.scss';
+
 const CheckoutPage = () => {
   const items = useSelector((state) => state.cart.cartItems);
   return (

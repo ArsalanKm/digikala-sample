@@ -1,9 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as actions from '../../store/cart/actions/index';
 import CustomButton from '../custom-button';
 import './_styles.scss';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import * as actions from '../../store/cart/actions/index';
+
 const ShopItem = ({ item }) => {
   const { id, images, price, title } = item;
   const dispatch = useDispatch();

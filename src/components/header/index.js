@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './_styles.scss';
-import { ReactComponent as Icon } from '../../assets/shop.svg';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Icon } from '../../assets/shop.svg';
 import { toggleCartHidden } from '../../store/cart/actions';
 import CartDropDown from '../cart-dropdown';
+import './_styles.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
