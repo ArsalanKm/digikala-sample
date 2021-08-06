@@ -40,21 +40,27 @@ export const setPagesCount = (pageCount) => {
 
 export const setSearchFilters = (searchFilters) => {
   return {
-    types: actionTypes.SET_SEARCH_FILTERS,
+    type: actionTypes.SET_SEARCH_FILTERS,
     payload: searchFilters,
   };
 };
 export const fetchProductsList = (searchFilters) => {
-  console.log(searchFilters);
   return (dispatch) => {
     dispatch(fetchProductsListStart());
     axios
       .get(`https://www.digikala.com/front-end/search/`, {
         headers: { token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv' },
-        params: searchFilters,
+        params: {
+          page: searchFilters.page,
+          rows: searchFilters.rows,
+          "price[min]": searchFilters.price.priceMin,
+          "price[max]": searchFilters.price.priceMax,
+          sort: searchFilters.sort,
+          q: searchFilters.q,
+          has_selling_stock:searchFilters.has_selling_stock
+        },
       })
       .then((data) => {
-        console.log(data);
         dispatch(setPagesCount(data.data.data.pager.total_pages));
         dispatch(fetchProductsListSuccess(data.data.data.products));
       })
@@ -78,7 +84,6 @@ export const fetchSingleProductFail = (error) => {
 };
 
 export const fetchSingleProductSuccess = (product) => {
-  console.log(product);
   return {
     type: actionTypes.FETCH_PRODUCT_SUCCESS,
     payload: product,
@@ -95,7 +100,6 @@ export const fetchSingleProduct = (productId) => {
         { headers: { token: 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv' } }
       )
       .then((res) => {
-        console.log(res.data.data.product);
         dispatch(fetchSingleProductSuccess(res.data.data));
       })
       .catch((err) => dispatch(fetchSingleProductFail(err)));

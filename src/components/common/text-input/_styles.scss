@@ -1,0 +1,18 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  .text-input-lable {
+    text-align: right;
+    padding: 5px;
+  }
+  input {
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+@media screen and (min-width: 781px) {
+  .text-input {
+    width: 20%;
+  }
+}

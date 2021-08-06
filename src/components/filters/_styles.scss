@@ -1,0 +1,31 @@
+.filters-header {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 5px;
+  font-size: 0.8rem  !important;
+  &input {
+    border: 1px solid #ccc;
+    width: 100px;
+  }
+  .custom-button{
+    margin-top: 15px;
+  }
+}
+.form-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 780px) {
+  .form-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .filters-header {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+  }
+}

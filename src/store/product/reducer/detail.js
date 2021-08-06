@@ -21,7 +21,6 @@ const index = (state = initialState, action) => {
       };
     }
     case actionTypes.FETCH_PRODUCT_SUCCESS: {
-      console.log(action.payload.product);
       return {
         ...state,
         loading: false,

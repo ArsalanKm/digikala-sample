@@ -4,17 +4,14 @@ const initialState = {
   products: [],
   loading: false,
   error: true,
-  page: 1,
   totalPages: 0,
   searchFilters: {
     page: 1,
     rows: 25,
-    price;{}
-    'price[min]': 0,
-    'price[max]': 100000,
+    price: { priceMin: 0, priceMax: 100000 },
     has_selling_stock: 1,
     sort: 4,
-    q: 'سی',
+    q: '',
   },
 };
 
@@ -41,15 +38,25 @@ const reducer = (state = initialState, action) => {
       };
     }
     case actionTypes.INCREASE_PAGE: {
+      const temp = {
+        ...state.searchFilters,
+        page: state.searchFilters.page + 1,
+      };
+
       return {
         ...state,
-        page: state.page + 1,
+        searchFilters: temp,
       };
     }
     case actionTypes.DECREASE_PAGE: {
+      const temp = {
+        ...state.searchFilters,
+        page: state.searchFilters.page - 1,
+      };
+
       return {
         ...state,
-        page: state.page - 1,
+        searchFilters: temp,
       };
     }
     default:
